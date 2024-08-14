@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>India's 78th Independence Day</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .flag-container {
+        width: 300px;
+        height: 200px;
+        border: 1px solid #ccc;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .flag {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        animation: fly 3s ease-in-out forwards;
+      }
+
+      .saffron {
+        height: 33.33%;
+        background-color: #ff9933;
+      }
+
+      .white {
+        height: 33.33%;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .chakra {
+        width: 50px;
+        height: 50px;
+      }
+
+      .green {
+        height: 33.33%;
+        background-color: #138808;
+      }
+
+      .info-container {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        display: none;
+      }
+
+      @keyframes fly {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>India's 78th Independence Day</h1>
+      <button id="flagButton">Hoist the Flag</button>
+      <div class="flag-container">
+        <div class="flag" id="flag">
+          <div class="saffron"></div>
+          <div class="white">
+            <svg viewBox="0 0 500 500" class="chakra">
+              <path
+                d="M 250,250 m -225,0 a 225,225 0 1,0 450,0 a 225,225 0 1,0 -450,0"
+                fill="#000"
+                stroke="#000"
+                stroke-width="30"
+              />
+              <g fill="#000">
+                <path
+                  d="M 250,250 m -205,0 a 205,205 0 1,0 410,0 a 205,205 0 1,0 -410,0"
+                />
+                <path d="M 250,250 l 0,-205 l 0,410 z" />
+                <path d="M 250,250 l -205,0 l 410,0 z" />
+              </g>
+              <circle cx="250" cy="250" r="20" fill="#000" />
+            </svg>
+          </div>
+          <div class="green"></div>
+        </div>
+      </div>
+      <div id="infoContainer" class="info-container">
+        <h2>India's Independence Struggle</h2>
+        <p id="infoText"></p>
+      </div>
+    </div>
+    <script>
+      const flagButton = document.getElementById("flagButton");
+      const infoText = document.getElementById("infoText");
+      const flag = document.getElementById("flag");
+
+      flagButton.addEventListener("click", () => {
+        hoistFlag();
+        displayIndependenceStruggle();
+      });
+
+      function hoistFlag() {
+        flag.style.animation = "none";
+        flag.offsetHeight;
+        flag.style.animation = "fly 3s ease-in-out forwards";
+      }
+
+      function displayIndependenceStruggle() {
+        const independenceStruggle = `
+                India's independence struggle was a long and arduous journey that spanned several decades. It began with the Indian Rebellion of 1857 and continued with various movements and uprisings against the British rule.
+        
+                Key events and figures in India's independence struggle include:
+                - The Indian National Congress, founded in 1885, which played a crucial role in the independence movement.
+                - Mahatma Gandhi's non-violent civil disobedience movement, including the Salt March and the Quit India Movement.
+                - The Partition of India in 1947, which led to the creation of the independent nations of India and Pakistan.
+                - The sacrifices of countless freedom fighters, such as Bhagat Singh, Chandrashekhar Azad, and Subhash Chandra Bose.
+        
+                After years of struggle and sacrifice, India finally gained independence on August 15, 1947, marking a significant milestone in its history.
+            `;
+
+        infoText.textContent = independenceStruggle;
+        document.getElementById("infoContainer").style.display = "block"; // Show info container
+      }
+    </script>
+  </body>
+</html>
